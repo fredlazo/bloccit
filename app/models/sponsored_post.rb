@@ -1,4 +1,4 @@
-class Post < ActiveRecord::Base
+class SponsoredPost < ActiveRecord::Base
    belongs_to :topic
    belongs_to :user
    has_many :comments, dependent: :destroy
@@ -6,7 +6,6 @@ class Post < ActiveRecord::Base
    has_many :favorites, dependent: :destroy
    has_many :labelings, as: :labelable
    has_many :labels, through: :labelings
-   has_many :sponsoredposts
    default_scope { order('rank DESC') }
 
    validates :title, length: { minimum: 5 }, presence: true
